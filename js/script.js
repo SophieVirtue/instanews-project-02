@@ -1,16 +1,22 @@
 $(document).ready(function() {
-  $('#select-options').on('change', function() {
-    const section = $(this).val();
+  $('#select-options').on('change', (event) => {
+    
     $('.nyt-logo').addClass('change-logo');
     $('.header-content').addClass('change-header');
     $('.display-logo').addClass('change-display-logo');
     $('.display-text').addClass('change-display-text');
+    
     event.preventDefault();
+   
     $('.loading').append(
       '<img class="loading-gif" src="./images/ajax-loader.gif">'
     );
+    const section = $(this).val();
+    getStories(section);
+  });
 
-    let url = 'https://api.nytimes.com/svc/topstories/v2/' + section + '.json';
+  getStories(section) => {
+    let url = `https://api.nytimes.com/svc/topstories/v2/${section}.json`;
     url +=
       '?' +
       $.param({
@@ -22,15 +28,15 @@ $(document).ready(function() {
       method: 'GET',
       dataType: 'JSON'
     })
-      .done(function(data) {
+      .done(data => {
         $('.results').empty();
         $('.homescreen-change').addClass();
 
-        let filteredData = data.results.filter(function(info) {
+        let filteredData = data.results.filter(info => {
           return info.multimedia.length;
-        });
-        filteredData = filteredData.slice(0, 12);
-        $.each(filteredData, function(index, value) {
+        }).slice(0, 12);
+
+        for (let value of filteredData) {
           $('.results').append(
             `<a href="${
               value.url
@@ -42,13 +48,14 @@ $(document).ready(function() {
           );
         });
       })
-      .fail(function() {
+      
+      .fail(() => {
         $('.results').empty();
         $('.results').append('<p>Apologies, this page is not loading...</p>');
       })
 
-      .always(function() {
+      .always(() => {
         $('.loading').empty();
       });
-  });
+  }
 });
