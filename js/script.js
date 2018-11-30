@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
   $('#select-options').on('change', (event) => {
     
     $('.nyt-logo').addClass('change-logo');
@@ -11,11 +12,12 @@ $(document).ready(function() {
     $('.loading').append(
       '<img class="loading-gif" src="./images/ajax-loader.gif">'
     );
-    const section = $(this).val();
+
+    const section = $('#select-options').val();
     getStories(section);
   });
 
-  getStories(section) => {
+    const getStories = (section) => {
     let url = `https://api.nytimes.com/svc/topstories/v2/${section}.json`;
     url +=
       '?' +
@@ -28,16 +30,20 @@ $(document).ready(function() {
       method: 'GET',
       dataType: 'JSON'
     })
+
+      
       .done(data => {
-        $('.results').empty();
+        const $results = $('.results');
+        
+        $results.empty();
         $('.homescreen-change').addClass();
 
         let filteredData = data.results.filter(info => {
-          return info.multimedia.length;
+          return info.multimedia[4];
         }).slice(0, 12);
 
         for (let value of filteredData) {
-          $('.results').append(
+          $results.append(
             `<a href="${
               value.url
             }" target="_blank"><article style="background: url(${
@@ -46,12 +52,12 @@ $(document).ready(function() {
               value.abstract
             }</p></article></a>`
           );
-        });
+        }
       })
       
       .fail(() => {
-        $('.results').empty();
-        $('.results').append('<p>Apologies, this page is not loading...</p>');
+        $results.empty();
+        $results.append('<p>Apologies, this page is not loading...</p>');
       })
 
       .always(() => {
