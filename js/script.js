@@ -17,7 +17,7 @@ $(document).ready(function() {
     getStories(section);
   });
 
-    const getStories = (section) => {
+  const getStories = (section) => {
     let url = `https://api.nytimes.com/svc/topstories/v2/${section}.json`;
     url +=
       '?' +
@@ -30,38 +30,37 @@ $(document).ready(function() {
       method: 'GET',
       dataType: 'JSON'
     })
-
-      
-      .done(data => {
-        const $results = $('.results');
+ 
+    .done(data => {
+      const $results = $('.results');
         
-        $results.empty();
-        $('.homescreen-change').addClass();
+      $results.empty();
+      $('.homescreen-change').addClass();
 
-        let filteredData = data.results.filter(info => {
-          return info.multimedia[4];
-        }).slice(0, 12);
+      let filteredData = data.results.filter(info => {
+        return info.multimedia[4];
+      }).slice(0, 12);
 
-        for (let value of filteredData) {
-          $results.append(
-            `<a href="${
-              value.url
-            }" target="_blank"><article style="background: url(${
-              value.multimedia[4].url
-            }) no-repeat center; background-size: cover;"><p class="abstract">${
-              value.abstract
-            }</p></article></a>`
-          );
-        }
-      })
+      for (let value of filteredData) {
+        $results.append(
+          `<a href="${
+            value.url
+          }" target="_blank"><article style="background: url(${
+            value.multimedia[4].url
+          }) no-repeat center; background-size: cover;"><p class="abstract">${
+            value.abstract
+          }</p></article></a>`
+        );
+      }
+    })
       
-      .fail(() => {
-        $results.empty();
-        $results.append('<p>Apologies, this page is not loading...</p>');
-      })
+    .fail(() => {
+      $results.empty();
+      $results.append('<p>Apologies, this page is not loading...</p>');
+    })
 
-      .always(() => {
-        $('.loading').empty();
-      });
+    .always(() => {
+      $('.loading').empty();
+    });
   }
 });

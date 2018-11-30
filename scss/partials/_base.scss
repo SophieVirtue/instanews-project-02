@@ -1,48 +1,23 @@
-body,
-html {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  background-color: $background-color;
-  text-align: center;
-  font-size: 16px;
-  font-family: Open Sans;
-  font-weight: 300;
-  font-style: normal;
-  box-sizing: border-box;
-  position: relative;
-  color: $standard-color;
-  .loading {
-    position: absolute;
-    z-index: 4;
-    top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%);
-  }
-  .loading-gif {
-    width: 2rem;
-  }
-}
-
 .header-content {
-  padding-top: 11rem;
-  padding-bottom: 9rem;
+  padding-top: 10.95rem;
+  padding-bottom: 9.75rem;
   @include tablet {
     display: flex;
     flex-direction: row;
     width: 100%;
     padding-bottom: 10.3rem;
-    padding-top: 222px;
+    padding-top: 13.875rem;
   }
 }
 
 .change-header {
   padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-bottom: 3rem;
   @include tablet {
-    padding-bottom: 0.55rem;
+    padding-bottom: 1.55rem;
+  }
+  @include desktop {
+    padding-bottom: 1.7rem;
   }
 }
 
@@ -50,7 +25,7 @@ html {
   @include tablet {
     flex-direction: row;
     margin: 0;
-    padding-left: 214px;
+    padding-left: 13.3rem;
   }
   @include desktop {
     padding-left: 2rem;
@@ -59,7 +34,7 @@ html {
 
 .change-display-logo {
   @include tablet {
-    padding-left: 100px;
+    padding-left: 6.25rem;
   }
   @include desktop {
     padding-left: 2rem;
@@ -70,39 +45,39 @@ html {
   @include tablet {
     flex-direction: row;
     margin: 0;
-    padding-left: 15px;
-    padding-top: 70px;
+    padding-left: 0.9375rem;
+    padding-top: 4.375rem;
   }
   @include desktop {
-    padding-left: 95px;
+    padding-left: 5.9375rem;
   }
 }
 
 .change-display-text {
   @include tablet {
-    padding-left: 83px;
+    padding-left: 5.1875rem;
     padding-top: 0;
   }
 }
 
 .nyt-logo {
-  height: 229px;
-  padding-bottom: 9px;
+  height: 14.4rem;
+  padding-bottom: 0.6rem;
   @include tablet {
-    height: 230px;
+    height: 14.375rem;
   }
 }
 
 .change-logo {
-  height: 159px;
+  height: 9.9375rem;
   @include tablet {
-    height: 76px;
+    height: 4.75rem;
   }
 }
 
 .header-content p {
   font-size: 0.8rem;
-  padding-top: 3px;
+  padding-top: 0.1875rem;
   padding-bottom: 1rem;
   margin: 0;
   @include tablet {
@@ -116,8 +91,7 @@ html {
 }
 
 select {
-  padding: 2px 8px 2px 8px;
-  font-weight: 550;
+  padding: 0.125rem 0.5rem;
   font-size: 1rem;
   &:focus {
     outline: 0;
@@ -138,7 +112,7 @@ select {
 }
 
 article {
-  height: 420px;
+  height: 26.25rem;
   position: relative;
   p {
     background-color: $results-background-color;

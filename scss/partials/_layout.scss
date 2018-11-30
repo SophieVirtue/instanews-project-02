@@ -1,3 +1,29 @@
 * {
   box-sizing: border-box;
 }
+
+body,
+html {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: $background-color;
+  text-align: center;
+  font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
+  box-sizing: border-box;
+  position: relative;
+  color: $standard-color;
+  .loading {
+    position: absolute;
+    z-index: 4;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+  }
+  .loading-gif {
+    width: 2rem;
+  }
+}
