@@ -1,7 +1,32 @@
-# Instanews Project 02
+# Instanews
 
-The intent of this project was to create a responsive web app that pulled information from the New York Times API.
+This is a responsive web app that pulls articles from the New York Times API.
 
-The web app was built with _Visual Studio Code_ and _GULP_.
+![](Giphy01.gif)
 
-Through this project, I developed my skills in **jQuery** and **API**'s, while also changin the way I style with CSS using **SASS**.
+## Technologies Used
+
+- HTML
+- CSS/SASS
+- JavaScript
+- JQuery
+- Ajax
+- Gulp
+
+## Installation
+
+**Run locally with Gulp:**
+
+```bash
+npm install
+```
+
+**Build for production:**
+
+```bash
+npx gulp
+```
+
+## Author
+
+Sophie Virtue  [LinkedIn](https://www.linkedin.com/in/sophie-virtue-65467849/)
